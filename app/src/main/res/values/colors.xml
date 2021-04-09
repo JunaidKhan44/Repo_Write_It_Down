@@ -14,4 +14,5 @@
     <color name="category_cooking">#74ae3d</color>
     <color name="category_work">#f5b730</color>
     <color name="category_school">#f45c3a</color>
+    <color name="colorDarkGrey">#A9A9A9</color>
 </resources>

@@ -1,31 +1,43 @@
 package com.example.writeitdown.Adapters;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.writeitdown.Activities.MainActivity;
 import com.example.writeitdown.Activities.TaskActivity;
 import com.example.writeitdown.ModelClasses.PermanentList;
+import com.example.writeitdown.ModelClasses.TaskList;
 import com.example.writeitdown.R;
+import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
+
+import io.paperdb.Paper;
 
 public class PermanentListAdapter extends RecyclerView.Adapter<PermanentListAdapter.ViewHolder> {
 
     ArrayList<PermanentList> categoryArrayList = new ArrayList<>();
-    ArrayList<PermanentList> tempList;
+    MainActivity mainActivity;
     Context context;
+   /* ArrayList<TaskList> lists = TaskActivity.getTaskLists();*/
+
+
 
     public PermanentListAdapter(ArrayList<PermanentList> categoryArrayList, Context context) {
         this.categoryArrayList = categoryArrayList;
@@ -44,19 +56,41 @@ public class PermanentListAdapter extends RecyclerView.Adapter<PermanentListAdap
       PermanentList permanentList = categoryArrayList.get(position);
       holder.title.setText(permanentList.getmTitles());
       holder.images.setImageResource(permanentList.getmImages());
+      holder.addBtn.setImageResource(permanentList.getmAddBtn());
+      holder.deleteBtn.setImageResource(permanentList.getmDeleteBtn());
       holder.constraintLayout.setBackgroundColor(permanentList.getmBgColors());
+  /*    holder.taskCount.setText(String.valueOf(TaskActivity.getTaskLists().size()));*/
+       // Log.i("taskList", "onBindViewHolder: "+lists.size());
 
-      if(categoryArrayList.size()== 6){
-          holder.deleteBtn.setVisibility(View.INVISIBLE);
-      }
-      if(categoryArrayList.size()>6){
-          holder.images.setVisibility(View.INVISIBLE);
-      }
+      holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+              alertDialog.setTitle("Alert");
+              alertDialog.setMessage("Are you sure you want to delete?"  );
+              alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                      (dialog, which) -> {
+                          try{
+                              categoryArrayList.remove(position);
+                              notifyItemRemoved(position);
+                              Paper.book().write("categories",categoryArrayList);
+                              notifyDataSetChanged();
+                          }catch (IndexOutOfBoundsException e){
+                              e.printStackTrace();
+                          }
+                      });
+              alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel",
+                      (dialog, which) -> dialog.dismiss());
+              alertDialog.show();
 
-      holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+          }
+      });
+
+      holder.addBtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
               Intent intent = new Intent(context.getApplicationContext(), TaskActivity.class);
+              intent.putExtra("categoryTitle",permanentList.getmTitles());
               context.startActivity(intent);
           }
       });
@@ -69,8 +103,8 @@ public class PermanentListAdapter extends RecyclerView.Adapter<PermanentListAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView mainList;
-        TextView title;
-        ImageView images, deleteBtn;
+        TextView title,taskCount;
+        ImageView images, deleteBtn,addBtn;
         ConstraintLayout constraintLayout;
 
 
@@ -81,6 +115,8 @@ public class PermanentListAdapter extends RecyclerView.Adapter<PermanentListAdap
             images = itemView.findViewById(R.id.icon_Image);
             constraintLayout =itemView.findViewById(R.id.parent_layout);
             deleteBtn = itemView.findViewById(R.id.delete_btn);
+            addBtn = itemView.findViewById(R.id.addBtn);
+            taskCount = itemView.findViewById(R.id.total_tasks);
         }
     }
 }

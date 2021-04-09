@@ -9,13 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WriteItDown">
-        <activity android:name=".Activities.TaskActivity"></activity>
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".Activities.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+
+        <activity android:name=".Activities.TaskActivity" />
+        <activity android:name=".Activities.MainActivity">
+
         </activity>
     </application>
 

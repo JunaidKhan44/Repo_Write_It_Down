@@ -2,7 +2,7 @@ package com.example.writeitdown.ModelClasses;
 
 public class PermanentList {
     String mTitles;
-    int mImages, mBgColors;
+    int mImages, mBgColors, mAddBtn,mDeleteBtn;
 
     public PermanentList(String mTitles, int mImages, int mBgColors) {
         this.mTitles = mTitles;
@@ -10,12 +10,43 @@ public class PermanentList {
         this.mBgColors = mBgColors;
     }
 
+
     public PermanentList(String mTitles, int mBgColors) {
         this.mTitles = mTitles;
         this.mBgColors = mBgColors;
     }
     public PermanentList() {
+    }
 
+    public PermanentList(String mTitles, int mImages, int mBgColors, int mAddBtn, int mDeleteBtn) {
+        this.mTitles = mTitles;
+        this.mImages = mImages;
+        this.mBgColors = mBgColors;
+        this.mAddBtn = mAddBtn;
+        this.mDeleteBtn = mDeleteBtn;
+    }
+
+    public PermanentList(String mTitles, int mImages, int mBgColors, int mAddBtn) {
+        this.mTitles = mTitles;
+        this.mImages = mImages;
+        this.mBgColors = mBgColors;
+        this.mAddBtn = mAddBtn;
+    }
+
+    public int getmAddBtn() {
+        return mAddBtn;
+    }
+
+    public void setmAddBtn(int mAddBtn) {
+        this.mAddBtn = mAddBtn;
+    }
+
+    public int getmDeleteBtn() {
+        return mDeleteBtn;
+    }
+
+    public void setmDeleteBtn(int mDeleteBtn) {
+        this.mDeleteBtn = mDeleteBtn;
     }
 
     public String getmTitles() {

@@ -5,4 +5,6 @@
     <string name="app">Task</string>
     <string name="category_type">Work</string>
     <string name="category_task">task :</string>
+    <string name="task_items">Items</string>
+    <string name="ADMOB_BANNER_REAL_ID">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

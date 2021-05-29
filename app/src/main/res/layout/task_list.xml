@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/delete_task_icon"
                 android:layout_toRightOf="@+id/task_icon"
                 android:textColor="@color/primaryColor"

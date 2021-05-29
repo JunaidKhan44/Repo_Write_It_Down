@@ -1,10 +1,28 @@
 <resources>
     <string name="app_name">Write It Down</string>
     <string name="my">My</string>
+    <string name="reminder">Reminders</string>
+    <string name="new_reminder">New Reminder</string>
     <string name="category">Categories</string>
     <string name="app">Task</string>
+    <string name="tasks">Tasks</string>
+    <string name="sleep_alarm">Sleep Time</string>
+    <string name="alarm">Alarm</string>
+    <string name="cancel">Cancel</string>
+    <string name="title">Title</string>
+    <string name="notes">Note</string>
+    <string name="wake_up">Wakeup Alarm</string>
+    <string name="lorum">Lorem Ipsum is simply dummy text.</string>
+    <string name="no_reminder">No Reminders!</string>
+    <string name="date">DD-MM-YYYY</string>
+    <string name="time">00:00 AM/PM</string>
     <string name="category_type">Work</string>
     <string name="category_task">task :</string>
     <string name="task_items">Items</string>
-    <string name="ADMOB_BANNER_REAL_ID">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ADMOB_BANNER_REAL_ID">ca-app-pub-9844943887550892/2927542280</string>
+    <string name="ADMOB_INTERSTITIAL_REAL_ID">ca-app-pub-9844943887550892/9707754816</string>
+
+
+    <string name="ADMOB_BANNER_fake_ID">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ADMOB_INTERSTITIAL_fake_ID">ca-app-pub-3940256099942544/1033173712</string>
 </resources>

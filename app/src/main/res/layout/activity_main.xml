@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryColor">
+    android:background="@color/primaryColor"
+    tools:context=".Activities.MainActivity">
 
     <LinearLayout
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="14dp"
-        tools:context=".Activities.MainActivity">
+        android:layout_above="@+id/add_btn"
+        android:paddingTop="14dp"
+        android:paddingRight="14dp"
+        android:paddingLeft="14dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,8 +37,8 @@
             android:id="@+id/ad_view"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@null"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:background="@null">
 
 
             <FrameLayout
@@ -55,18 +60,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
-
-
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <RelativeLayout
         android:id="@+id/add_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="40dp"
-        android:src="@drawable/add" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/new_category">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/text_new_cat"
+            android:src="@drawable/add" />
+
+        <TextView
+            android:id="@+id/text_new_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="New Category"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

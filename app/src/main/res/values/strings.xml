@@ -23,6 +23,6 @@
     <string name="ADMOB_INTERSTITIAL_REAL_ID">ca-app-pub-9844943887550892/9707754816</string>
 
 
-    <string name="ADMOB_BANNER_fake_ID">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="ADMOB_INTERSTITIAL_fake_ID">ca-app-pub-3940256099942544/1033173712</string>
+<!--    <string name="ADMOB_BANNER_fake_ID">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="ADMOB_INTERSTITIAL_fake_ID">ca-app-pub-3940256099942544/1033173712</string>-->
 </resources>

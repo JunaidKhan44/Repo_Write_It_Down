@@ -21,7 +21,7 @@ public class Global {
     public static void loadInterstitialAdMob(Context context) {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(context,"ca-app-pub-3940256099942544/1033173712", adRequest, new InterstitialAdLoadCallback() {
+        InterstitialAd.load(context,"ca-app-pub-9844943887550892/9707754816", adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                 // The mInterstitialAd reference will be null until

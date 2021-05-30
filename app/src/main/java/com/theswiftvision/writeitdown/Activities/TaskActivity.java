@@ -161,7 +161,7 @@ public class TaskActivity extends AppCompatActivity {
     private void loadBanner() {
         // Create an ad request.
         adView = new AdView(this);
-        adView.setAdUnitId(getString(R.string.ADMOB_BANNER_fake_ID));
+        adView.setAdUnitId(getString(R.string.ADMOB_BANNER_REAL_ID));
         adContainerView.removeAllViews();
         adContainerView.addView(adView);
 

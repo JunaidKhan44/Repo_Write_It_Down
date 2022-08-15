@@ -1,8 +1,8 @@
-package com.theswiftvision.writeitdown.ModelClasses;
+package com.theswiftvision.writeitdown.modelclasses;
 
 public class PermanentList {
-    String mTitles;
-    int mImages, mBgColors, mAddBtn,mDeleteBtn;
+    private String mTitles;
+    private int mImages, mBgColors, mAddBtn,mDeleteBtn;
 
     public PermanentList(String mTitles, int mImages, int mBgColors) {
         this.mTitles = mTitles;

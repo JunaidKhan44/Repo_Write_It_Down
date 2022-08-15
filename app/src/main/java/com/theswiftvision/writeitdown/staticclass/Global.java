@@ -1,4 +1,4 @@
-package com.theswiftvision.writeitdown.StaticClass;
+package com.theswiftvision.writeitdown.staticclass;
 
 import android.content.Context;
 import android.util.Log;

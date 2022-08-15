@@ -1,15 +1,12 @@
-package com.theswiftvision.writeitdown.Activities;
+package com.theswiftvision.writeitdown.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.theswiftvision.writeitdown.R;
 

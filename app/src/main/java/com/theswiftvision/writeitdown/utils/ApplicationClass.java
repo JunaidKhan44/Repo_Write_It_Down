@@ -1,8 +1,8 @@
-package com.theswiftvision.writeitdown.Utils;
+package com.theswiftvision.writeitdown.utils;
 
 import android.app.Application;
 
-import com.theswiftvision.writeitdown.StaticClass.Global;
+import com.theswiftvision.writeitdown.staticclass.Global;
 
 public class ApplicationClass extends Application {
 

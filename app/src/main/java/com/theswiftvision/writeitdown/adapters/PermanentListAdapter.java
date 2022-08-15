@@ -1,5 +1,6 @@
-package com.theswiftvision.writeitdown.Adapters;
+package com.theswiftvision.writeitdown.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -15,11 +16,10 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.theswiftvision.writeitdown.Activities.AddTask;
-import com.theswiftvision.writeitdown.Activities.MainActivity;
-import com.theswiftvision.writeitdown.Activities.TaskActivity;
-import com.theswiftvision.writeitdown.ModelClasses.PermanentList;
-import com.theswiftvision.writeitdown.ModelClasses.TaskList;
+import com.theswiftvision.writeitdown.activities.MainActivity;
+import com.theswiftvision.writeitdown.activities.TaskActivity;
+import com.theswiftvision.writeitdown.modelclasses.PermanentList;
+import com.theswiftvision.writeitdown.modelclasses.TaskList;
 import com.theswiftvision.writeitdown.R;
 
 import java.util.ArrayList;
@@ -28,11 +28,11 @@ import io.paperdb.Paper;
 
 public class PermanentListAdapter extends RecyclerView.Adapter<PermanentListAdapter.ViewHolder> {
 
-    ArrayList<PermanentList> categoryArrayList = new ArrayList<>();
-    ArrayList<TaskList> lists = new ArrayList<>();
-    MainActivity mainActivity;
-    String categoryName;
-    Context context;
+    private ArrayList<PermanentList> categoryArrayList = new ArrayList<>();
+    private ArrayList<TaskList> lists = new ArrayList<>();
+    private MainActivity mainActivity;
+    private String categoryName;
+    private Context context;
 
 
 
@@ -49,7 +49,7 @@ public class PermanentListAdapter extends RecyclerView.Adapter<PermanentListAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
       PermanentList permanentList = categoryArrayList.get(position);
       holder.title.setText(permanentList.getmTitles());
         lists.clear();
@@ -70,8 +70,8 @@ public class PermanentListAdapter extends RecyclerView.Adapter<PermanentListAdap
           @Override
           public void onClick(View v) {
               AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-              alertDialog.setTitle("Alert");
-              alertDialog.setMessage("Are you sure you want to delete?"  );
+              alertDialog.setTitle(context.getString(R.string.lblAlertTitle));
+              alertDialog.setMessage(context.getString(R.string.msgAlert));
               alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, Html.fromHtml("<font color='#607cc8'>Yes</font>"),
                       (dialog, which) -> {
                           try{

@@ -1,9 +1,9 @@
-package com.theswiftvision.writeitdown.ModelClasses;
+package com.theswiftvision.writeitdown.modelclasses;
 
 public class TaskList {
 
-    String mTask;
-    int mAddTask, mDeleteTask, count;
+    private String mTask;
+    private int mAddTask, mDeleteTask, count;
 
     public TaskList(String mTask, int mAddTask, int mDeleteTask) {
         this.mTask = mTask;

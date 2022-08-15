@@ -1,4 +1,4 @@
-package com.theswiftvision.writeitdown.Activities;
+package com.theswiftvision.writeitdown.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,12 +9,8 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
-import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.media.AudioAttributes;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -32,8 +28,8 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.theswiftvision.writeitdown.BroadcastReciever.ReminderReciver;
-import com.theswiftvision.writeitdown.ModelClasses.AlarmDetails;
+import com.theswiftvision.writeitdown.broadcastreciever.ReminderReciver;
+import com.theswiftvision.writeitdown.modelclasses.AlarmDetails;
 import com.theswiftvision.writeitdown.R;
 
 import java.util.ArrayList;
@@ -47,18 +43,18 @@ public class NewReminder extends AppCompatActivity {
     public static int count = 1,ALARM_COUNT=0;
     int year, month, day, mHour, mMinute;
     int requestID = new Random().nextInt();
-    ImageView datePickerButton, timePickerButton;
-    EditText dateEt, timeEt, titleEt, notesEt;
-    RelativeLayout createAlarmBtn;
-    ArrayList<AlarmDetails> alarmDetailsList;
-    TextView cancelBtn;
+    private ImageView datePickerButton, timePickerButton;
+    private EditText dateEt, timeEt, titleEt, notesEt;
+    private RelativeLayout createAlarmBtn;
+    private ArrayList<AlarmDetails> alarmDetailsList;
+    private TextView cancelBtn;
     private String[] mDateSplit;
     private String[] mTimeSplit;
     public Calendar cal, mCalendar;
     private FrameLayout adContainerView;
     private AdView adView;
     public static String mTime, mDate, mTitle, mNotes;
-    int requestId;
+    private int requestId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,19 +107,19 @@ public class NewReminder extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (titleEt.getText().toString().equals("")) {
-                    titleEt.setError("Fill all fields!");
+                    titleEt.setError(getString(R.string.msgErrortext));
                     return;
                 } else if (notesEt.getText().toString().equals("")) {
-                    notesEt.setError("Fill all fields!");
+                    titleEt.setError(getString(R.string.msgErrortext));
                     return;
                 } else if (dateEt.getText().toString().equals("")) {
-                    dateEt.setError("Fill all fields!");
+                    titleEt.setError(getString(R.string.msgErrortext));
                     return;
                 } else if (timeEt.getText().toString().equals("")) {
-                    timeEt.setError("Fill all fields!");
+                    titleEt.setError(getString(R.string.msgErrortext));
                     return;
                 } else if(count== 1){
-                    Toast.makeText(NewReminder.this, "Make sure to on Alarm!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewReminder.this, getString(R.string.msgAlarmText), Toast.LENGTH_SHORT).show();
                 }else {
                     mTimeSplit = mTime.split(":");
                     mDateSplit = mDate.split("-");

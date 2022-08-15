@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
 
     <application
-        android:name=".Utils.ApplicationClass"
+        android:name=".utils.ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,13 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WriteItDown">
 
-        <activity android:name=".Activities.AlarmDetails"
+        <activity android:name=".activities.AlarmDetails"
             android:showOnLockScreen="true"/>
-        <activity android:name=".Activities.NewReminder" />
-        <activity android:name=".Activities.Reminder" />
-        <activity android:name=".Activities.AddTask" />
+        <activity android:name=".activities.NewReminder" />
+        <activity android:name=".activities.Reminder" />
+        <activity android:name=".activities.AddTask" />
         <activity
-            android:name=".Activities.Splash"
+            android:name=".activities.Splash"
             android:theme="@style/Theme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,14 +29,14 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".BroadcastReciever.ReminderReciver" />
+        <receiver android:name=".broadcastreciever.ReminderReciver" />
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
 
-        <activity android:name=".Activities.TaskActivity" />
-        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".activities.TaskActivity" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>

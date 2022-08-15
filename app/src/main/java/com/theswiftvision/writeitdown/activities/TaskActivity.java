@@ -1,4 +1,4 @@
-package com.theswiftvision.writeitdown.Activities;
+package com.theswiftvision.writeitdown.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,10 +15,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.theswiftvision.writeitdown.Adapters.TaskAdapter;
-import com.theswiftvision.writeitdown.ModelClasses.TaskList;
+import com.theswiftvision.writeitdown.adapters.TaskAdapter;
+import com.theswiftvision.writeitdown.modelclasses.TaskList;
 import com.theswiftvision.writeitdown.R;
-import com.theswiftvision.writeitdown.StaticClass.Global;
+import com.theswiftvision.writeitdown.staticclass.Global;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -31,14 +31,14 @@ import io.paperdb.Paper;
 
 public class TaskActivity extends AppCompatActivity {
 
-    TextView category;
+    private TextView category;
     public static TextView listCount;
-    EditText taskET;
-    ImageView add;
-    RelativeLayout addReminderBtn;
-    RecyclerView taskRecyclerView;
-    TaskAdapter taskAdapter;
-    static ArrayList<TaskList> taskLists = new ArrayList<>();
+    public EditText taskET;
+    public ImageView add;
+    public RelativeLayout addReminderBtn;
+    public RecyclerView taskRecyclerView;
+    public TaskAdapter taskAdapter;
+    public static ArrayList<TaskList> taskLists = new ArrayList<>();
     private FrameLayout adContainerView;
     SharedPreferences mSharedPref;
     private AdView adView;
@@ -93,7 +93,7 @@ public class TaskActivity extends AppCompatActivity {
                         }
                     }
                     if (taskET.getText().toString().trim().equals("")) {
-                        taskET.setError("Add Task!");
+                        taskET.setError(getString(R.string.lblAddTask));
                         return false;
                     } else {
                         taskLists.add(new TaskList(task, 0));

@@ -1,9 +1,7 @@
-package com.theswiftvision.writeitdown.Adapters;
+package com.theswiftvision.writeitdown.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.theswiftvision.writeitdown.ModelClasses.AlarmDetails;
+import com.theswiftvision.writeitdown.modelclasses.AlarmDetails;
 import com.theswiftvision.writeitdown.R;
 
 import java.text.ParseException;
@@ -25,13 +23,13 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHolder> {
-    ArrayList<AlarmDetails> alarmDetailsList = new ArrayList<>();
-    Context context;
-    Calendar calendar;
+    private ArrayList<AlarmDetails> alarmDetailsList = new ArrayList<>();
+    private Context context;
+    private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private String date, tomorrow;
     private String time = String.valueOf(System.currentTimeMillis() - 1);
-    String currentDate = null;
+    private String currentDate = null;
 
     public ReminderAdapter(ArrayList<AlarmDetails> alarmDetailsList, Context context) {
         this.alarmDetailsList = alarmDetailsList;
@@ -107,7 +105,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, com.theswiftvision.writeitdown.Activities.AlarmDetails.class);
+                Intent intent = new Intent(context, com.theswiftvision.writeitdown.activities.AlarmDetails.class);
                 intent.putExtra("title", alarmDetails.getmTitle());
                 intent.putExtra("mNotes", alarmDetails.getmNotes());
                 intent.putExtra("time", alarmDetails.getmTime());

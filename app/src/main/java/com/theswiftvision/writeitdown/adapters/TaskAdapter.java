@@ -1,4 +1,4 @@
-package com.theswiftvision.writeitdown.Adapters;
+package com.theswiftvision.writeitdown.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,10 +14,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.theswiftvision.writeitdown.Activities.TaskActivity;
-import com.theswiftvision.writeitdown.ModelClasses.TaskList;
+import com.theswiftvision.writeitdown.activities.TaskActivity;
+import com.theswiftvision.writeitdown.modelclasses.TaskList;
 import com.theswiftvision.writeitdown.R;
-import com.theswiftvision.writeitdown.StaticClass.Global;
+import com.theswiftvision.writeitdown.staticclass.Global;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ import io.paperdb.Paper;
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
    public static ArrayList<TaskList> taskLists = new ArrayList<>();
-    Context context;
+   private Context context;
 
 
     public TaskAdapter(ArrayList<TaskList> taskLists, Context context) {

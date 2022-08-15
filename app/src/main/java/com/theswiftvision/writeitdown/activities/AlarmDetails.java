@@ -1,25 +1,17 @@
-package com.theswiftvision.writeitdown.Activities;
+package com.theswiftvision.writeitdown.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.theswiftvision.writeitdown.BroadcastReciever.ReminderReciver;
-import com.theswiftvision.writeitdown.BuildConfig;
+import com.theswiftvision.writeitdown.broadcastreciever.ReminderReciver;
 import com.theswiftvision.writeitdown.R;
 
 import java.util.ArrayList;
@@ -28,13 +20,13 @@ import io.paperdb.Paper;
 
 public class AlarmDetails extends AppCompatActivity {
 
-    String mTitle, mNotes, mDate, mTime;
-    TextView titleTv, noteTv, dateTv, timeTv;
+    private String mTitle, mNotes, mDate, mTime;
+    private TextView titleTv, noteTv, dateTv, timeTv;
     private FrameLayout adContainerView;
     private AdView adView;
     int alarmCount;
-    Button dismissAlarm;
-    ArrayList<com.theswiftvision.writeitdown.ModelClasses.AlarmDetails> alarmDetailsList = new ArrayList<>();
+    private Button dismissAlarm;
+    private ArrayList<com.theswiftvision.writeitdown.modelclasses.AlarmDetails> alarmDetailsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,12 +1,9 @@
-package com.theswiftvision.writeitdown.Activities;
+package com.theswiftvision.writeitdown.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -22,7 +19,6 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -33,17 +29,15 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.material.switchmaterial.SwitchMaterial;
-import com.theswiftvision.writeitdown.Adapters.ReminderAdapter;
-import com.theswiftvision.writeitdown.BroadcastReciever.ReminderReciver;
-import com.theswiftvision.writeitdown.ModelClasses.AlarmDetails;
+import com.theswiftvision.writeitdown.adapters.ReminderAdapter;
+import com.theswiftvision.writeitdown.broadcastreciever.ReminderReciver;
+import com.theswiftvision.writeitdown.modelclasses.AlarmDetails;
 import com.theswiftvision.writeitdown.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Random;
 
 import io.paperdb.Paper;
@@ -51,25 +45,25 @@ import io.paperdb.Paper;
 public class Reminder extends AppCompatActivity {
 
 
-    RecyclerView alarmRecycler;
-    static ArrayList<AlarmDetails> alarmDetailsList = new ArrayList<>();
-    ArrayList<AlarmDetails> todayArrayList = new ArrayList<>();
-    ArrayList<AlarmDetails> tomorrowArrayList = new ArrayList<>();
+    private RecyclerView alarmRecycler;
+    public static ArrayList<AlarmDetails> alarmDetailsList = new ArrayList<>();
+    private ArrayList<AlarmDetails> todayArrayList = new ArrayList<>();
+    private ArrayList<AlarmDetails> tomorrowArrayList = new ArrayList<>();
     public static String mTitle = "", mNotes = "", mDate = "", mTime = "", datePick = "";
-    String mSleepTitle = "Sleep Time ", mWakeupAlarm = "Wakeup Alarm";
-    ReminderAdapter reminderAdapter;
+    private String mSleepTitle = "Sleep Time ", mWakeupAlarm = "Wakeup Alarm";
+    private ReminderAdapter reminderAdapter;
     public int mAlarmStatus;
     private FrameLayout adContainerView;
     private AdView adView;
-    Calendar calendar;
+    private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private String date, tomorrow;
-    TextView noReminder, todayList, tomorrowList;
-    ImageView mainList;
-    int year, month, day,alarmStatus;
+    private TextView noReminder, todayList, tomorrowList;
+    private ImageView mainList;
+    private int year, month, day,alarmStatus;
     SharedPreferences mSharedPref;
     public int alarmRequest = new Random().nextInt();
-    RelativeLayout mSleepTime, mWakeupTime;
+    private RelativeLayout mSleepTime, mWakeupTime;
     public static int SLEEP_COUNT = 0, WAKEUP_COUNT = 0;
 
     @Override
@@ -181,7 +175,7 @@ public class Reminder extends AppCompatActivity {
                 edit.apply();
                 sleepTime();
                 mSleepTime.setBackgroundResource(R.color.colorDarkGrey);
-                Toast.makeText(Reminder.this, "Sleep Time set: 10:00 pm", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Reminder.this, getString(R.string.msgAlarmNote), Toast.LENGTH_SHORT).show();
             } else if (SLEEP_COUNT == 1){
                 SLEEP_COUNT = 0;
                 SharedPreferences.Editor edit = mSharedPref.edit();
@@ -190,7 +184,7 @@ public class Reminder extends AppCompatActivity {
                 edit.apply();
                 sleepTime();
                 mSleepTime.setBackgroundResource(R.color.category_cooking);
-                Toast.makeText(Reminder.this, "Alarm Disable", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Reminder.this, getString(R.string.msgAlarmDisable), Toast.LENGTH_SHORT).show();
             }
         });
         mainList.setOnClickListener(new View.OnClickListener() {
@@ -210,7 +204,7 @@ public class Reminder extends AppCompatActivity {
                     edit.apply();
                     wakeUpTime();
                     mWakeupTime.setBackgroundResource(R.color.colorDarkGrey);
-                    Toast.makeText(Reminder.this, "Sleep Time set: 8:00 am", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Reminder.this, getString(R.string.msgAlarmNote2), Toast.LENGTH_SHORT).show();
                 } else if (WAKEUP_COUNT == 1) {
                     WAKEUP_COUNT = 0;
                     SharedPreferences.Editor edit = mSharedPref.edit();
@@ -218,7 +212,7 @@ public class Reminder extends AppCompatActivity {
                     edit.commit();
                     edit.apply();
                     mWakeupTime.setBackgroundResource(R.color.category_school);
-                    Toast.makeText(Reminder.this, "Alarm Disable", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Reminder.this, getString(R.string.msgAlarmDisable), Toast.LENGTH_SHORT).show();
                 }
             }
         });

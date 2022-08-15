@@ -1,7 +1,6 @@
-package com.theswiftvision.writeitdown.Activities;
+package com.theswiftvision.writeitdown.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,12 +15,12 @@ import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.theswiftvision.writeitdown.R;
-import com.theswiftvision.writeitdown.StaticClass.Global;
+import com.theswiftvision.writeitdown.staticclass.Global;
 
 public class AddTask extends AppCompatActivity {
     private FrameLayout adContainerView;
     private AdView adView;
-    String catTitle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

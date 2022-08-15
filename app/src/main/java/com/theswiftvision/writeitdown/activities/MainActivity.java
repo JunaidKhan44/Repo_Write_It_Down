@@ -1,4 +1,4 @@
-package com.theswiftvision.writeitdown.Activities;
+package com.theswiftvision.writeitdown.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -17,10 +17,10 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import com.theswiftvision.writeitdown.Adapters.PermanentListAdapter;
-import com.theswiftvision.writeitdown.ModelClasses.PermanentList;
+import com.theswiftvision.writeitdown.adapters.PermanentListAdapter;
+import com.theswiftvision.writeitdown.modelclasses.PermanentList;
 import com.theswiftvision.writeitdown.R;
-import com.theswiftvision.writeitdown.StaticClass.Global;
+import com.theswiftvision.writeitdown.staticclass.Global;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -28,7 +28,6 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -37,16 +36,16 @@ import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView mainListRC;
-    ArrayList<PermanentList> permanentListArrayList = new ArrayList<>();
-    ArrayList<PermanentList> tempList = new ArrayList<>();
-    RelativeLayout addListBtn;
-    static String category, categoryTaskList;
-    PermanentListAdapter adapter;
+    private RecyclerView mainListRC;
+    private ArrayList<PermanentList> permanentListArrayList = new ArrayList<>();
+    private ArrayList<PermanentList> tempList = new ArrayList<>();
+    private RelativeLayout addListBtn;
+    public static String category, categoryTaskList;
+    private PermanentListAdapter adapter;
     private FrameLayout adContainerView;
     private AdView adView;
-    SharedPreferences mSharedPref;
-    String isFirstTime = null;
+    private SharedPreferences mSharedPref;
+    private String isFirstTime = null;
 
 
     @Override
@@ -175,12 +174,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void inflateData(ArrayList<PermanentList> permanentLists) {
-        permanentLists.add(new PermanentList("Work", R.drawable.work, getResources().getColor(R.color.category_work), R.drawable.add));
-        permanentLists.add(new PermanentList("School", R.drawable.school, getResources().getColor(R.color.category_school), R.drawable.add));
-        permanentLists.add(new PermanentList("Shopping", R.drawable.supermarket, getResources().getColor(R.color.category_shopping), R.drawable.add));
-        permanentLists.add(new PermanentList("Cooking", R.drawable.chef, getResources().getColor(R.color.category_cooking), R.drawable.add));
-        permanentLists.add(new PermanentList("Note", R.drawable.reminder, getResources().getColor(R.color.category_note), R.drawable.add));
-        permanentLists.add(new PermanentList("Book", R.drawable.book, getResources().getColor(R.color.category_blue), R.drawable.add));
+        permanentLists.add(new PermanentList(getString(R.string.lblWork), R.drawable.work, getResources().getColor(R.color.category_work), R.drawable.add));
+        permanentLists.add(new PermanentList(getString(R.string.lblSchool), R.drawable.school, getResources().getColor(R.color.category_school), R.drawable.add));
+        permanentLists.add(new PermanentList(getString(R.string.lblShopping), R.drawable.supermarket, getResources().getColor(R.color.category_shopping), R.drawable.add));
+        permanentLists.add(new PermanentList(getString(R.string.lblCooking), R.drawable.chef, getResources().getColor(R.color.category_cooking), R.drawable.add));
+        permanentLists.add(new PermanentList(getString(R.string.lblNote), R.drawable.reminder, getResources().getColor(R.color.category_note), R.drawable.add));
+        permanentLists.add(new PermanentList(getString(R.string.lblBook), R.drawable.book, getResources().getColor(R.color.category_blue), R.drawable.add));
     }
 
     @Override

@@ -19,10 +19,33 @@
     <string name="category_type">Work</string>
     <string name="category_task">task :</string>
     <string name="task_items">Items</string>
+
+
+    <string name="lblWork">Work</string>
+    <string name="lblSchool">School</string>
+    <string name="lblShopping">Shopping</string>
+    <string name="lblCooking">Cooking</string>
+    <string name="lblNote">Note</string>
+    <string name="lblBook">Book</string>
+
+    <string name="msgAlarmText">Make sure to on Alarm!</string>
+    <string name="msgErrortext">Fill all fields!</string>
+
+
+
+
+
+
     <string name="ADMOB_BANNER_REAL_ID">ca-app-pub-9844943887550892/2927542280</string>
     <string name="ADMOB_INTERSTITIAL_REAL_ID">ca-app-pub-9844943887550892/9707754816</string>
+    <string name="msgAlarmNote">Sleep Time set: 10:00 pm</string>
+    <string name="msgAlarmDisable">Alarm Disable</string>
+    <string name="msgAlarmNote2">Sleep Time set: 8:00 am</string>
+    <string name="lblAddTask">Add Task!</string>
+    <string name="lblAlertTitle">Alert</string>
+    <string name="msgAlert">Are you sure you want to delete?</string>
 
 
-<!--    <string name="ADMOB_BANNER_fake_ID">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--    <string name="ADMOB_BANNER_fake_ID">ca-app-pub-3940256099942544/6300978111</string>-->
 <!--    <string name="ADMOB_INTERSTITIAL_fake_ID">ca-app-pub-3940256099942544/1033173712</string>-->
 </resources>

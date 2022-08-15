@@ -1,9 +1,9 @@
-package com.theswiftvision.writeitdown.ModelClasses;
+package com.theswiftvision.writeitdown.modelclasses;
 
 public class AlarmDetails {
 
-    String mTitle, mNotes, mTime, mDate;
-    int mRequestId,mAlarmStatus;
+    private String mTitle, mNotes, mTime, mDate;
+    private int mRequestId,mAlarmStatus;
 
 
     public AlarmDetails(String mTitle, String mNotes, String mTime, String mDate, int mAlarmStatus) {
